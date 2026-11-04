@@ -1,6 +1,6 @@
 
 import { readFileSync } from 'node:fs';
-const profile = JSON.parse(readFileSync(new URL('../site-data.json', import.meta.url), 'utf8'));
+const profile = JSON.parse(readFileSync(new URL('../site-data.json', import.meta.url), 'utf8'));    
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
 
