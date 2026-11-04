@@ -1,4 +1,4 @@
-# Pushparaj — React + AI Portfolio
+# Pushparaj  AI Portfolio
 
 An animated, responsive developer portfolio rebuilt in **React + Vite** from the original HTML/CSS/JavaScript portfolio, keeping its orange-accented design, animated illustration, skills, project cards, AI assistant, and contact/resume flows. A small Node server serves the production React build and provides server-side Gemini/OpenAI chat APIs.
 
@@ -113,4 +113,3 @@ curl http://localhost:3000/api/resume-status
 Source GitHub: https://github.com/pushparajDevXpert/pushparaj-ai-portfolio
 
 This React version is a separate downloadable project; uploading it to GitHub and deploying it is a user action and has not been performed automatically.
-# Pushparaj_Cartoon_Partfolio
