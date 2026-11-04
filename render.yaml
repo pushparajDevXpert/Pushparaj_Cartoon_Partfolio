@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pushparaj-ai-portfolio-react
+    runtime: node
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: VITE_FORMSPREE_URL
+        sync: false

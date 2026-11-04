@@ -1,0 +1,91 @@
+{
+  "name": "Pushparaj Abhijeet Supekar",
+  "shortName": "Pushparaj",
+  "role": "Full-Stack Python Developer · AI / Data Science",
+  "headline": "I connect Python backends, modern web experiences, and data-driven intelligence to build useful digital products.",
+  "location": "India",
+  "availability": "Open to developer & AI opportunities",
+  "intro": "I’m Pushparaj — a Full-Stack Python Developer interested in AI, machine learning, and Data Science. I like transforming ideas into real-world web experiences, from the logic behind the API to the details people see on screen.",
+  "about": "My focus is where software engineering meets intelligent systems: clean Python services, responsive interfaces, meaningful data, and applied AI. The stack and example projects below are customizable, so the final portfolio can match my verified tools, experience, and results.",
+  "email": "pushparajs7568r@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/pushparaj-supekar/?isSelfProfile=true",
+  "github": "https://github.com/pushparajDevXpert",
+  "resumeUrl": "./resume.pdf",
+  "liveUrl": "https://your-live-project.onrender.com",
+  "githubUrl": "https://github.com/pushparajDevXpert/your-project",
+  "focusAreas": [
+    {
+      "icon": "{ }",
+      "title": "Full-Stack Web Apps",
+      "description": "Interface-to-database workflows. Example stack: React, JavaScript, HTML/CSS, and Python web frameworks."
+    },
+    {
+      "icon": "⌁",
+      "title": "Python APIs & Backends",
+      "description": "REST APIs, business logic, authentication, and data services with FastAPI or Django."
+    },
+    {
+      "icon": "✳",
+      "title": "Applied AI & Machine Learning",
+      "description": "Explore ML pipelines, NLP, retrieval-augmented generation, and AI features that solve practical problems."
+    },
+    {
+      "icon": "▥",
+      "title": "Data Science & Analytics",
+      "description": "From SQL and Pandas to exploratory analysis, data visualization, and insights people can act on."
+    }
+  ],
+  "skills": [
+    "Python",
+    "FastAPI",
+    "Django",
+    "REST APIs",
+    "JavaScript",
+    "React.Js",
+    "HTML / CSS",
+    "SQL",
+    "MYSQL",
+    "Git / GitHub",
+    "Pandas",
+    "NumPy",
+    "scikit-learn",
+    "Machine Learning",
+    "LLM Apps",
+    "RAG",
+    "Data Visualization",
+    "Streamlit",
+    "Docker"
+  ],
+  "reply": "Here are Pushparaj's featured projects! 🚀",
+  "projects": [
+   
+{
+  "number": "01",
+  "title": "ANIMEXA – AI-Powered Animal Care Platform",
+  "description": "ANIMEXA is an AI-powered full-stack animal care and welfare management platform that integrates pet registration, veterinary appointments, medical records, vaccination tracking, pet shopping, adoption, animal rescue, grooming, boarding, and pet travel services. It also features Nexa AI, an intelligent chatbot designed to assist pet owners with general pet care guidance and service recommendations.",
+  "image": "/projects/Project1.png",
+  "tags": [
+    "React.js",
+    "Tailwind CSS",
+    "Python",
+    "Django",
+    "Django REST Framework",
+    "MySQL",
+    "JWT Authentication",
+    "AI Integration",
+    "Razorpay",
+    "Cloudinary"
+  ],
+  "liveUrl": "",
+  "githubUrl": ""
+}
+
+  ],
+  "factsForAssistant": [
+    "Pushparaj has created this AI-powered developer portfolio; its source code is linked on the portfolio card.",
+    "Other project cards marked SAMPLE PROJECT are illustrative concepts, not verified finished work.",
+    "The displayed technology stack is editable and should not be treated as a verified employment record.",
+    "Do not invent awards, qualifications, employment, or completed projects.",
+    "Contact details are only available when explicitly provided in the portfolio JSON."
+  ]
+}
