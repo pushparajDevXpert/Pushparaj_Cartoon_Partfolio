@@ -21,64 +21,64 @@ import { safeURL } from '../utils.js';
 //   </div>;
 // }
 
-function ResumeMenu({ forceOpen }) {
-  const [open, setOpen] = useState(false);
-  const wrapper = useRef(null);
+  function ResumeMenu({ forceOpen }) {
+    const [open, setOpen] = useState(false);
+    const wrapper = useRef(null);
 
-  useEffect(() => {
-    if (forceOpen) setOpen(true);
-  }, [forceOpen]);
+    useEffect(() => {
+      if (forceOpen) setOpen(true);
+    }, [forceOpen]);
 
-  useEffect(() => {
-    const onOutside = event => {
-      if (!wrapper.current?.contains(event.target)) {
-        setOpen(false);
-      }
-    };
+    useEffect(() => {
+      const onOutside = event => {
+        if (!wrapper.current?.contains(event.target)) {
+          setOpen(false);
+        }
+      };
 
-    document.addEventListener('pointerdown', onOutside);
-    return () => document.removeEventListener('pointerdown', onOutside);
-  }, []);
+      document.addEventListener('pointerdown', onOutside);
+      return () => document.removeEventListener('pointerdown', onOutside);
+    }, []);
 
-  return (
-    <div className="resume-selector" ref={wrapper}>
-      <button
-        type="button"
-        id="resume-menu-toggle"
-        aria-expanded={open}
-        aria-controls="resume-popup"
-        onClick={() => setOpen(x => !x)}
-      >
-        RESUME <span>↗</span>
-      </button>
-
-      <div
-        id="resume-popup"
-        className="resume-popup"
-        hidden={!open}
-      >
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setOpen(false)}
+    return (
+      <div className="resume-selector" ref={wrapper}>
+        <button
+          type="button"
+          id="resume-menu-toggle"
+          aria-expanded={open}
+          aria-controls="resume-popup"
+          onClick={() => setOpen(x => !x)}
         >
-          <i className="fa-solid fa-eye" aria-hidden="true" />
-          View Resume
-        </a>
+          RESUME <span>↗</span>
+        </button>
 
-        <a
-          href="/resume.pdf"
-          download="Pushparaj_Supekar_Resume.pdf"
-          onClick={() => setOpen(false)}
+        <div
+          id="resume-popup"
+          className="resume-popup"
+          hidden={!open}
         >
-          <i className="fa-solid fa-download" aria-hidden="true" />
-          Download Resume
-        </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            <i className="fa-solid fa-eye" aria-hidden="true" />
+            View Resume
+          </a>
+
+          <a
+            href="/resume.pdf"
+            download="Pushparaj_Supekar_Resume.pdf"
+            onClick={() => setOpen(false)}
+          >
+            <i className="fa-solid fa-download" aria-hidden="true" />
+            Download Resume
+          </a>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 
 function ContactForm() {
@@ -133,7 +133,7 @@ export default function Contact({ profile, resumeAvailable, forceOpen }) {
         <div className="contact-socials">{github && <a href={github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
           {linkedin && <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>}
         </div>
-        <ResumeMenu available={resumeAvailable} forceOpen={forceOpen} />
+        <ResumeMenu forceOpen={forceOpen} />
       </div>
       <ContactForm />
     </div>
