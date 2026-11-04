@@ -1,25 +1,85 @@
 import { useEffect, useRef, useState } from 'react';
 import { safeURL } from '../utils.js';
 
-function ResumeMenu({ available, forceOpen }) {
+// function ResumeMenu({ available, forceOpen }) {
+//   const [open, setOpen] = useState(false);
+//   const wrapper = useRef(null);
+//   useEffect(() => { if (forceOpen) setOpen(true); }, [forceOpen]);
+//   useEffect(() => {
+//     const onOutside = event => { if (!wrapper.current?.contains(event.target)) setOpen(false); };
+//     document.addEventListener('pointerdown', onOutside);
+//     return () => document.removeEventListener('pointerdown', onOutside);
+//   }, []);
+//   return <div className="resume-selector" ref={wrapper}>
+//     <button type="button" id="resume-menu-toggle" aria-expanded={open} aria-controls="resume-popup" onClick={() => setOpen(x => !x)}>RESUME <span>↗</span></button>
+//     <div id="resume-popup" className="resume-popup" hidden={!open}>
+//       {available ? <>
+//         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"><i className="fa-solid fa-eye" aria-hidden="true" /> View Resume</a>
+//         <a href="/resume.pdf" download="Pushparaj_Supekar_Resume.pdf"><i className="fa-solid fa-download" aria-hidden="true" /> Download Resume</a>
+//       </> : <span className="resume-unavailable">Add <code>resume.pdf</code> to the project root to enable this.</span>}
+//     </div>
+//   </div>;
+// }
+
+function ResumeMenu({ forceOpen }) {
   const [open, setOpen] = useState(false);
   const wrapper = useRef(null);
-  useEffect(() => { if (forceOpen) setOpen(true); }, [forceOpen]);
+
   useEffect(() => {
-    const onOutside = event => { if (!wrapper.current?.contains(event.target)) setOpen(false); };
+    if (forceOpen) setOpen(true);
+  }, [forceOpen]);
+
+  useEffect(() => {
+    const onOutside = event => {
+      if (!wrapper.current?.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
     document.addEventListener('pointerdown', onOutside);
     return () => document.removeEventListener('pointerdown', onOutside);
   }, []);
-  return <div className="resume-selector" ref={wrapper}>
-    <button type="button" id="resume-menu-toggle" aria-expanded={open} aria-controls="resume-popup" onClick={() => setOpen(x => !x)}>RESUME <span>↗</span></button>
-    <div id="resume-popup" className="resume-popup" hidden={!open}>
-      {available ? <>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"><i className="fa-solid fa-eye" aria-hidden="true" /> View Resume</a>
-        <a href="/resume.pdf" download="Pushparaj_Supekar_Resume.pdf"><i className="fa-solid fa-download" aria-hidden="true" /> Download Resume</a>
-      </> : <span className="resume-unavailable">Add <code>resume.pdf</code> to the project root to enable this.</span>}
+
+  return (
+    <div className="resume-selector" ref={wrapper}>
+      <button
+        type="button"
+        id="resume-menu-toggle"
+        aria-expanded={open}
+        aria-controls="resume-popup"
+        onClick={() => setOpen(x => !x)}
+      >
+        RESUME <span>↗</span>
+      </button>
+
+      <div
+        id="resume-popup"
+        className="resume-popup"
+        hidden={!open}
+      >
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+        >
+          <i className="fa-solid fa-eye" aria-hidden="true" />
+          View Resume
+        </a>
+
+        <a
+          href="/resume.pdf"
+          download="Pushparaj_Supekar_Resume.pdf"
+          onClick={() => setOpen(false)}
+        >
+          <i className="fa-solid fa-download" aria-hidden="true" />
+          Download Resume
+        </a>
+      </div>
     </div>
-  </div>;
+  );
 }
+
 
 function ContactForm() {
   const [status, setStatus] = useState({ text: 'Messages are submitted securely through Formspree without leaving this page.', type: '' });
