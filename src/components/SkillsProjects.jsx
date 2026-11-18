@@ -286,61 +286,126 @@ function getProjectImagePath(image) {
 }
 
 // PROJECT SCREENSHOT WITH FALLBACK
+// function ProjectThumbnail({ project, index }) {
+//   const imageSrc = getProjectImagePath(project.image);
+//   const [imageFailed, setImageFailed] = useState(false);
+
+//   useEffect(() => {
+//     setImageFailed(false);
+//   }, [imageSrc]);
+
+//   const showImage = Boolean(imageSrc) && !imageFailed;
+//   const symbol = ['✳', '</>', '▥', 'AI'][index % 4];
+
+//   return (
+//     <div
+//       className={`project-thumbnail ${themes[index % themes.length]
+//         } ${showImage ? 'has-image' : ''}`}
+//     >
+//       {showImage ? (
+//         <img
+//           src={imageSrc}
+//           alt={`${project.title} project screenshot`}
+//           className="project-screenshot"
+//           loading="lazy"
+//           decoding="async"
+//           onError={() => {
+//             console.error(
+//               'Project screenshot failed to load:',
+//               imageSrc
+//             );
+//             setImageFailed(true);
+//           }}
+//         />
+//       ) : (
+//         <div className="project-screen">
+//           <div className="project-screen-top">
+//             <i />
+//             <i />
+//             <i />
+//           </div>
+
+//           <div className="project-screen-inner">
+//             <div className="project-screen-side">
+//               <span />
+//               <span />
+//               <span />
+//               <span />
+//             </div>
+
+//             <div className="project-screen-main">
+//               <div className="project-screen-heading" />
+
+//               <div className="project-screen-panels">
+//                 <b>{symbol}</b>
+//                 <b>↗</b>
+//               </div>
+
+//               <div className="project-screen-footer" />
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
 function ProjectThumbnail({ project, index }) {
-  const imageSrc = getProjectImagePath(project.image);
-  const [imageFailed, setImageFailed] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  const rawImage = String(project.image || '').trim();
+
+  const imageSrc = rawImage
+    .replace(/^(\.\/)?public\//, '/')
+    .replace(/^\/public\//, '/');
+
+  const finalSrc = imageSrc && !/^https?:\/\//i.test(imageSrc)
+    ? `/${imageSrc.replace(/^\/+/, '')}`
+    : imageSrc;
 
   useEffect(() => {
-    setImageFailed(false);
-  }, [imageSrc]);
+    setFailed(false);
+  }, [finalSrc]);
 
-  const showImage = Boolean(imageSrc) && !imageFailed;
   const symbol = ['✳', '</>', '▥', 'AI'][index % 4];
+  const showImage = Boolean(finalSrc) && !failed;
 
   return (
     <div
-      className={`project-thumbnail ${themes[index % themes.length]
-        } ${showImage ? 'has-image' : ''}`}
+      className={`project-thumbnail ${themes[index % themes.length]} ${showImage ? 'has-image' : ''
+        }`}
     >
       {showImage ? (
         <img
-          src={imageSrc}
-          alt={`${project.title} project screenshot`}
+          src={finalSrc}
+          alt={`${project.title} screenshot`}
           className="project-screenshot"
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          onLoad={() => {
+            console.log('✅ Image loaded:', finalSrc);
+          }}
           onError={() => {
-            console.error(
-              'Project screenshot failed to load:',
-              imageSrc
-            );
-            setImageFailed(true);
+            console.error('❌ Image not found:', finalSrc);
+            setFailed(true);
           }}
         />
       ) : (
         <div className="project-screen">
           <div className="project-screen-top">
-            <i />
-            <i />
-            <i />
+            <i /><i /><i />
           </div>
 
           <div className="project-screen-inner">
             <div className="project-screen-side">
-              <span />
-              <span />
-              <span />
-              <span />
+              <span /><span /><span /><span />
             </div>
 
             <div className="project-screen-main">
               <div className="project-screen-heading" />
-
               <div className="project-screen-panels">
                 <b>{symbol}</b>
                 <b>↗</b>
               </div>
-
               <div className="project-screen-footer" />
             </div>
           </div>
@@ -349,6 +414,7 @@ function ProjectThumbnail({ project, index }) {
     </div>
   );
 }
+
 
 // DYNAMIC PROJECTS SECTION
 export function Projects({ profile }) {
