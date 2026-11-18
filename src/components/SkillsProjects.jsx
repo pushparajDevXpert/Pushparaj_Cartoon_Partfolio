@@ -145,8 +145,10 @@ function ProjectActions({ project }) {
 
 export function Projects({ profile }) {
   const github = safeURL(profile.github);
-  const projects = (profile.projects || []).slice(0, 8);
-
+  // const projects = (profile.projects || []).slice(0, 8);
+  const projects = (profile.projects || []).filter(
+  project => !/^SAMPLE PROJECT/i.test(project.category || '')
+);
   return (
     <section
       id="projects"
