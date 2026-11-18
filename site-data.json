@@ -59,7 +59,7 @@
   "reply": "Here are Pushparaj's featured projects! 🚀",
   "projects": [
    
-[{
+{
   "number": "01",
   "title": "ANIMEXA – AI-Powered Animal Care Platform",
   "description": "ANIMEXA is an AI-powered full-stack animal care and welfare management platform that integrates pet registration, veterinary appointments, medical records, vaccination tracking, pet shopping, adoption, animal rescue, grooming, boarding, and pet travel services. It also features Nexa AI, an intelligent chatbot designed to assist pet owners with general pet care guidance and service recommendations.",
@@ -78,22 +78,7 @@
   ],
   "liveUrl": "",
   "githubUrl": ""
-},
-{
-    "number": "02",
-    "title": "SOLEPORT – Online Footwear Store",
-    "description": "SOLEPORT is a footwear shopping website where customers can browse shoe collections, compare styles, and choose their size. Product pages bring photos, pricing, and size options together so shoppers can find a pair that fits their needs and budget.",
-    "image": "",
-    "tags": [
-      "E-commerce",
-      "Footwear",
-      "Product Catalog",
-      "Online Shopping"
-    ],
-    "liveUrl": "",
-    "githubUrl": ""
-  }
-]
+}
 
   ],
   "factsForAssistant": [
