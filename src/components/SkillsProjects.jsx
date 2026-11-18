@@ -129,9 +129,8 @@ export function Skills({ profile }) {
                 <div className="skill-row">
 
                   <span
-                    className={`skill-icon ${
-                      logos.length > 1 ? 'skill-icon-double' : ''
-                    }`}
+                    className={`skill-icon ${logos.length > 1 ? 'skill-icon-double' : ''
+                      }`}
                     aria-hidden="true"
                   >
                     {logos.map(({ Icon, color }, index) => (
@@ -160,52 +159,102 @@ export function Skills({ profile }) {
 }
 
 // PROJECT BUTTONS
-function ProjectActions({ project }) {
-  const live = safeURL(project.liveUrl || project.link);
-  const github = safeURL(project.githubUrl);
+// function ProjectActions({ project }) {
+//   const live = safeURL(project.liveUrl || project.link);
+//   const github = safeURL(project.githubUrl);
 
-  if (!live && !github) {
-    return (
-      <span className="project-link is-placeholder">
-        Demo and code links coming soon
-      </span>
-    );
-  }
+//   if (!live && !github) {
+//     return (
+//       <span className="project-link is-placeholder">
+//         Demo and code links coming soon
+//       </span>
+//     );
+//   }
+
+//   return (
+//     <div className="project-actions">
+//       {live && (
+//         <a
+//           className="project-btn live"
+//           href={live}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           <i
+//             className="fa-solid fa-arrow-up-right-from-square"
+//             aria-hidden="true"
+//           />
+//           <span>Live Demo</span>
+//         </a>
+//       )}
+
+//       {github && (
+//         <a
+//           className="project-btn github"
+//           href={github}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           <i
+//             className="fa-brands fa-github"
+//             aria-hidden="true"
+//           />
+//           <span>GitHub Code</span>
+//         </a>
+//       )}
+//     </div>
+//   );
+// }
+
+
+function ProjectActions({ project }) {
+  const live = safeURL(project?.liveUrl);
+  const github = safeURL(project?.githubUrl);
+
+  // Hide entire button section if no valid links exist
+  if (!live && !github) return null;
 
   return (
-    <div className="project-actions">
-      {live && (
-        <a
-          className="project-btn live"
-          href={live}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i
-            className="fa-solid fa-arrow-up-right-from-square"
-            aria-hidden="true"
-          />
-          <span>Live Demo</span>
-        </a>
-      )}
+    <div className="project-bottom">
+      <div className="project-actions">
 
-      {github && (
-        <a
-          className="project-btn github"
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i
-            className="fa-brands fa-github"
-            aria-hidden="true"
-          />
-          <span>GitHub Code</span>
-        </a>
-      )}
+        {/* Live Demo - only if liveUrl exists */}
+        {live && (
+          <a
+            className="project-btn live"
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              className="fa-solid fa-arrow-up-right-from-square"
+              aria-hidden="true"
+            />
+            <span>Live Demo</span>
+          </a>
+        )}
+
+        {/* GitHub Code - only if githubUrl exists */}
+        {github && (
+          <a
+            className="project-btn github"
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              className="fa-brands fa-github"
+              aria-hidden="true"
+            />
+            <span>GitHub Code</span>
+          </a>
+        )}
+
+      </div>
     </div>
   );
 }
+
 
 // NORMALIZE PUBLIC IMAGE PATHS
 function getProjectImagePath(image) {
@@ -250,9 +299,8 @@ function ProjectThumbnail({ project, index }) {
 
   return (
     <div
-      className={`project-thumbnail ${
-        themes[index % themes.length]
-      } ${showImage ? 'has-image' : ''}`}
+      className={`project-thumbnail ${themes[index % themes.length]
+        } ${showImage ? 'has-image' : ''}`}
     >
       {showImage ? (
         <img
@@ -353,9 +401,10 @@ export function Projects({ profile }) {
                 ))}
               </div>
 
-              <div className="project-bottom">
+              {/* <div className="project-bottom">
                 <ProjectActions project={project} />
-              </div>
+              </div> */}
+              <ProjectActions project={project} />
             </div>
 
           </article>
