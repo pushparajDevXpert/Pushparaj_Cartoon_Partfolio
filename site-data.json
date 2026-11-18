@@ -58,41 +58,34 @@
   ],
   "reply": "Here are Pushparaj's featured projects! 🚀",
   "projects": [
-   
-{
-  "number": "01",
-  "title": "ANIMEXA – AI-Powered Animal Care Platform",
-  "description": "ANIMEXA is an AI-powered full-stack animal care and welfare management platform that integrates pet registration, veterinary appointments, medical records, vaccination tracking, pet shopping, adoption, animal rescue, grooming, boarding, and pet travel services. It also features Nexa AI, an intelligent chatbot designed to assist pet owners with general pet care guidance and service recommendations.",
-  "image": "/public/projects/Project1.png",
-  "tags": [
-    "React.js",
-    "Tailwind CSS",
-    "Python",
-    "Django",
-    "Django REST Framework",
-    "MySQL",
-    "JWT Authentication",
-    "AI Integration",
-    "Razorpay",
-    "Cloudinary"
-  ],
-  "liveUrl": "",
-  "githubUrl": ""
-},{
-    "number": "02",
-    "title": "SOLEPORT – Online Footwear Store",
-    "description": "SOLEPORT is a footwear shopping website where customers can browse shoe collections, compare styles, and choose their size. Product pages bring photos, pricing, and size options together so shoppers can find a pair that fits their needs and budget.",
-    "image": "",
-    "tags": [
-      "E-commerce",
-      "Footwear",
-      "Product Catalog",
-      "Online Shopping"
-    ],
-    "liveUrl": "",
-    "githubUrl": ""
-  }
-
+    {
+      "number": "01",
+      "category": "FULL STACK · PORTFOLIO",
+      "title": "AI-Powered Developer Portfolio",
+      "description": "An AI-powered developer portfolio.",
+      "tags": [
+        "React",
+        "Node.js",
+        "Gemini API"
+      ],
+      "image": "/projects/portfolio.png",
+      "liveUrl": "https://pushparaj-ai-portfolio.onrender.com",
+      "githubUrl": "https://github.com/pushparajDevXpert/pushparaj-ai-portfolio"
+    },
+    {
+      "number": "02",
+      "title": "SOLEPORT – Online Footwear Store",
+      "description": "SOLEPORT is a footwear shopping website where customers can browse shoe collections, compare styles, and choose their size. Product pages bring photos, pricing, and size options together so shoppers can find a pair that fits their needs and budget.",
+      "image": "",
+      "tags": [
+        "E-commerce",
+        "Footwear",
+        "Product Catalog",
+        "Online Shopping"
+      ],
+      "liveUrl": "",
+      "githubUrl": ""
+    }
   ],
   "factsForAssistant": [
     "Pushparaj has created this AI-powered developer portfolio; its source code is linked on the portfolio card.",
